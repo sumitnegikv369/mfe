@@ -4,7 +4,7 @@ const commonConfig = require("./webpack.common");
 const packageJson = require("../package.json");
 const deps = packageJson.dependencies;
 
-const domain = process.env.PRODUCTION_DOMAIN;
+const domain = 'https://mfe-45s4.vercel.app/';
 
 const prodConfig = {
   mode: "production",
@@ -17,7 +17,7 @@ const prodConfig = {
     new ModuleFederationPlugin({
       name: "container",
       remotes: {
-        marketing: `marketing@${domain}/marketing/remoteEntry.js`,
+        marketing: `marketing@${domain}/remoteEntry.js`,
       },
       shared: {
         ...deps,
