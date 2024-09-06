@@ -4,7 +4,7 @@ const commonConfig = require("./webpack.common");
 const packageJson = require("../package.json");
 const deps = packageJson.dependencies;
 
-const domain = 'https://mfe-45s4.vercel.app/';
+const domain = 'https://mfe-45s4.vercel.app';
 
 const prodConfig = {
   mode: "production",
