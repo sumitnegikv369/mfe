@@ -12,6 +12,9 @@ const prodConfig = {
     filename: "[name].[contenthash].js",
     clean: true,
   },
+  resolve: {
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: "container",
