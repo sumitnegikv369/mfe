@@ -2,8 +2,8 @@ name: Container Deployment to Vercel
 on:
   push:
     branches: [main]
-    # paths:
-    #   - "packages/container/**"
+    paths:
+      - "packages/container/**"
 
 
 jobs:
