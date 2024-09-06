@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "./container/**"
+      - "mfe/container/**"
 
 
 jobs:
