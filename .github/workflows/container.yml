@@ -1,33 +1,31 @@
-name: Vercel Container Deployment
-
+name: Container Deployment to Vercel
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
       - "packages/container/**"
 
-defaults:
-  run:
-    working-directory: packages/container
 
 jobs:
-  Deploy-to-Vercel:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Install dependencies
-        run: npm install
+        run: npm install  
+
 
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
       - name: Login to Vercel
-        run: vercel login --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel login --token ${{ secrets.VERCEL_TOKEN }}
 
-      - name: Build Project
+      - name: Build container
         run: npm run build
 
       - name: Deploy to Vercel
-        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel deploy --prebuilt --prod --token ${{ secrets.VERCEL_TOKEN }}
