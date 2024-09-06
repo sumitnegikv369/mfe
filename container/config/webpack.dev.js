@@ -12,6 +12,9 @@ const devConfig = {
       index: "index.html",
     },
   },
+  resolve: {
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
+  },
   plugins: [
     new ModuleFederationPlugin({
       name: "container",
