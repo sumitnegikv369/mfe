@@ -1,0 +1,32 @@
+name: Container Deployment to Vercel
+on:
+  push:
+    branches: [main]
+    paths:
+      - "mfe/marketing/**"
+
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install  
+        working-directory: ./marketing
+
+      - name: Build project
+        run: npm run build
+        working-directory: ./marketing
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25 
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} 
+          vercel-args: '--prod'
+          vercel-org-id: ${{ secrets.ORG_ID}}
+          vercel-project-id: ${{ secrets.PROJECT_ID}} 
+          working-directory: ./marketing
