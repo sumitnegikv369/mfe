@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/marketing/$1"
+      "destination": "/marketing/dist/$1"
     }
   ]
 }
