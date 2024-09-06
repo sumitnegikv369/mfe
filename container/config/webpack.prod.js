@@ -11,6 +11,7 @@ const prodConfig = {
   output: {
     filename: "[name].[contenthash].js",
     clean: true,
+    publicPath: "/",
   },
   // plugins: [
   //   new ModuleFederationPlugin({
